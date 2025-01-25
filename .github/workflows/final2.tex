@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\title{Computer Workshop \\ Final Project}
+\author{Ali Karkhaneh}
+\date{Winter of 4031}
+
+
+\pagestyle{fancy}
+\fancyhead[L]{\thepage}
+\fancypagestyle{noRhead}{
+    \fancyhead[R]{}
+}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\thispagestyle{noRhead}
+\setcounter{page}{1}
+\newpage
+\section{ Git and GitHub}
+\subsection{ Repository Initialization and Commits}
+\begin{enumerate}
+    \item Create a New Repository
+    \item Clone the Repository
+    \newline
+    \textnormal{Navigate to your newly created repository on GitHub.Click the "Code" button, then copy the URL provided.
+    Open your terminal (or command prompt) and navigate to the directory where you want to clone the repository.
+    Run the following command: git clone [repository URL]
+    }
+    \item Add Files to the Repository
+    \newline 
+    \textnormal{Now, add the files for your assignment to the repository: Navigate to the cloned repository directory on your local machine:
+    cd [repository name] . Copy or create the files you need for your assignment in this directory.
+    }
+    \item Commit the Changes
+    \newline 
+    \textnormal{Check the status of your repository to see the changes: git status
+    Add the new files to the staging area: git add . Commit the changes with a descriptive message: git commit -m "Added assignment files"}
+    \item Push the Changes to GitHub
+    \newline
+    \textnormal{Run the following command: git push origin main
+    } 
+\end{enumerate}
+\subsection{ GitHub Actions for LaTeX Compilation}
+\begin{enumerate}
+    \item Add Files to the Repository
+    \newline
+    \textnormal{Navigate to the cloned repository directory on your local machine:
+    cd [repository name]
+    Replace [repository name] with the name of your repository.
+    Copy or create the files you need for your assignment in this directory.}
+    \item Commit the changes
+    \newline
+    \textnormal{Check the status of your repository to see the changes:
+    git status
+    Add the new files to the staging area:
+    git add .
+    Commit the changes with a descriptive message:
+    git commit -m "Added assignment files"}
+    \item Push the Changes to GitHub
+    \newline
+    \textnormal{Run the following command:
+    git push origin main }
+\end{enumerate}
+\section{Exploration Tasks}
+\subsection{ Vim Advanced Features}
+\begin{enumerate}
+    \item Using Marks
+    \newline
+    \textnormal{Marks allow you to mark specific positions in your text and jump back to them quickly. You can set a mark with the m command followed by a letter (e.g., ma sets mark a). To jump to a mark, use the backtick (\ ) followed by the mark letter (e.g., ``a `` jumps to mark a)}
+    \item Quickfix List
+    \newline
+    \textnormal{The quickfix list is a powerful feature that allows you to navigate through a list of errors or search results. You can use it with commands like :grep to search for a pattern in files and jump directly to the matches. The quickfix list can be navigated using :cnext and :cprev to move to the next and previous items, respectively}
+\end{enumerate}
+\subsection{Memory profiling}
+\textnormal{\textbf{malloc:}Allocates a specified number of bytes and returns a pointer to the allocated memory.}
+\newline
+\textnormal{\textbf{calloc:}Similar to malloc, but it also initializes the allocated memory to zero.}
+\newline
+\textnormal{\textbf{realloc:}Resizes a previously allocated memory block, which can be quite handy if your data requirements change.}
+\newline
+\textnormal{\textbf{free:}Frees up previously allocated memory, which helps prevent memory leaks.}
+\subsubsection{Memory Leak}
+\textnormal{A memory leak occurs when a program fails to release memory that it no longer needs, causing the memory usage to grow over time and potentially leading to poor performance or even system crashes. Essentially, memory that is no longer in use is not returned to the system's memory pool, resulting in wasted resources.}
+\begin{enumerate}
+    \item Failure to Free Memory:
+    \newline
+    \textnormal{Dynamic memory allocation without proper deallocation.}
+    \item Unused References:
+    \newline
+    \textnormal{Dynamic memory allocation without proper deallocation.}
+    \item Circular Referecnes:
+    \newline
+    \textnormal{Objects reference each other, leading to memory retention even if they are no longer needed.}
+    \item Resource Mismanagement:
+    \newline
+    \textnormal{Not closing file handles, sockets, or other resources, causing memory not to be released.}
+    \subsubsection{Memory profilers}
+    \textnormal{Valgrind is a powerful tool designed for memory debugging, memory leak detection, and profiling. It was originally created to be a freely licensed memory debugging tool for Linux on x86, but it has since evolved into a framework for creating dynamic analysis tools1.}
+    \newpage
+    \textbf{Purpose of Valgrind}
+    \newline
+    \textnormal{Valgrind helps developers improve their programs by detecting various memory-related issues. It includes several tools, each serving a different purpose:}
+    \newline
+    \textnormal{\textbf{Memcheck:}Detects memory errors such as accessing uninitialized memory, reading/writing memory after it has been freed, and memory leaks.}
+    \newline
+    \textnormal{\textbf{Cachegrind:} A cache and branch-prediction profiler that helps optimize program performance.}
+    \newline
+    \textnormal{\textbf{Helgrind:} Detects synchronization errors in multithreaded programs.}
+    \newline
+    \textnormal{\textbf{Massif:} A heap profiler that helps understand memory usage.}
+\end{enumerate}
+\subsection{GNU/Linux Bash Scripting}
+\subsubsection{fzf}
+\textnormal{Fuzzy searching, also known as approximate string matching, is a search technique that finds matches even when the search query doesn't perfectly match the corresponding data. Instead of requiring an exact character-for-character match, fuzzy search identifies results that are similar in terms of spelling, meaning, or other criteria1. This is particularly useful for handling user input with typos, variations, abbreviations, and other inconsistencies.}\newline
+\textnormal{To install fzf on your machine, you can use Homebrew if you're on macOS or Linux. Open your terminal and run:}\newline
+\textnormal{brew install fzf}\newline
+\textnormal{The command ls | fzf combines the ls and fzf commands. Here's what it does:}
+\begin{enumerate}
+    \item ls: Lists the files and directories in the current directory.
+    \item |: This is a pipe, which takes the output of the ls command and passes it as input to the fzf command.
+    \item fzf: The fuzzy finder tool that allows you to interactively filter the list of files and directories. You can type any part of the file or directory name, and fzf will dynamically update the list to show only the matches.
+\end{enumerate}
+\section{Git and FOSS}
+\url{https://github.com/alikh1384-ui/alikh1384-ui}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5 \textwidth]{compputer.png}
+\end{figure}
+\end{document}
